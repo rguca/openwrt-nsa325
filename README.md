@@ -8,7 +8,11 @@ mw.l f1010100 0020c000
 # HDDs
 ```
 opkg install kmod-md-linear mdadm block-mount luci-app-hd-idle
-mdadm --assemble /dev/md1 /dev/sdb2 --run
+mdadm --assemble /dev/md1 /dev/sda2 --run
+
+# if you experience periodic disk access and disk won't sleep
+# this runs ext4lazyinit
+mount -o init_itable=0 /dev/sdb0 /mnt/sdb0
 ```
 
 # Tethering
@@ -32,4 +36,15 @@ if [ $tacho -gt 0 ]; then
 else
    echo 0
 fi
+```
+
+# Turn on after power failure
+
+```
+# Read value 0 = stay off, 1 = turn on
+i2cget -y 0x0 0x50 0x7 b
+
+# Set value
+i2cset -y 0x0 0x50 0x7 0x01 b
+
 ```
