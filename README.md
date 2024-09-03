@@ -15,6 +15,9 @@ mdadm --assemble /dev/md1 /dev/sda2 --run
 mount -o init_itable=0 /dev/sdb0 /mnt/sdb0
 ```
 
+# Samba
+If mount on client is not possible, check if DNS on server is set.
+
 # Tethering
 ```
 opkg install kmod-usb-net-rndis
