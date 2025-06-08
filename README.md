@@ -24,7 +24,10 @@ Configure:
 # Samba
 If mount on client is not possible, check if DNS on server is set.
 
-To change name, change hostname. Clear DNS cache on router and computer.
+To change name:
+* Change hostname
+* Restart avahi daemon
+* Clear DNS cache on router and computer
 
 # Tethering
 ```
