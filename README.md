@@ -34,6 +34,17 @@ To change name:
 * Restart avahi daemon
 * Clear DNS cache on router and computer
 
+# Mosquitto
+`opkg install mosquitto`
+
+edit `/etc/mosquitto/mosquitto.conf`
+
+```
+listener 1883 0.0.0.0
+allow_anonymous true
+```
+
+
 # Tethering
 ```
 opkg install kmod-usb-net-rndis
