@@ -21,6 +21,11 @@ Configure:
 * Services -> Network Shares
 
 
+# USB ethernet
+
+TP-LINK TL-UE300:
+`opkg install kmod-usb-net-rtl8152`
+
 # Samba
 If mount on client is not possible, check if DNS on server is set.
 
