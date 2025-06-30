@@ -114,6 +114,8 @@ iptables -A PREROUTING -t nat -p udp -i rmnet_data0 --dport 51820 -j DNAT --to-d
 Add NAT rule:
 <img width="943" alt="Bildschirmfoto 2025-06-29 um 17 03 46" src="https://github.com/user-attachments/assets/649545b8-6e73-4016-a645-137b8712aa6b" />
 
+Restart VPN network interface after adding peers. Check with `wg show`
+
 # sensors.sh
 ```
 opkg install i2c-tools smartmontools
