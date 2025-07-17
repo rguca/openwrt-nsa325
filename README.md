@@ -1,10 +1,3 @@
-# Uboot
-
-```
-# turn on USB power
-mw.l f1010100 0020c000
-```
-
 # HDDs
 ```
 opkg install kmod-md-linear mdadm block-mount luci-app-hd-idle luci-app-samba4
@@ -144,6 +137,13 @@ if [ $tacho -gt 0 ]; then
 else
    echo 0
 fi
+```
+
+# Uboot
+
+```
+# turn on USB power
+mw.l f1010100 0020c000
 ```
 
 # Turn on after power failure
