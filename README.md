@@ -105,16 +105,19 @@ uci add_list network.wgclient.allowed_ips="${VPN_ADDR%.*}.2/32"
 uci add_list network.wgclient.allowed_ips="${VPN_ADDR6%:*}:2/128"
 uci commit network
 service network restart
-
-iptables -D PREROUTING 1 -t nat
-iptables -A PREROUTING -t nat -p udp -i rmnet_data0 --dport 51820 -j DNAT --to-destination 192.168.1.4:51820
-# for debugging
-# iptables -A PREROUTING -t nat -p icmp -i rmnet_data0 -j DNAT --to-destination 192.168.1.4
 ```
+
 Add NAT rule:
 <img width="943" alt="Bildschirmfoto 2025-06-29 um 17 03 46" src="https://github.com/user-attachments/assets/649545b8-6e73-4016-a645-137b8712aa6b" />
 
 Restart VPN network interface after adding peers. Check with `wg show`
+
+## On gateway
+```
+iptables -A PREROUTING -t nat -p udp -i rmnet_data0 --dport 51820 -j DNAT --to-destination 192.168.1.4:51820
+# for debugging
+# iptables -A PREROUTING -t nat -p icmp -i rmnet_data0 -j DNAT --to-destination 192.168.1.4
+```
 
 # sensors.sh
 ```
