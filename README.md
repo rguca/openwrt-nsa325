@@ -55,8 +55,17 @@ opkg install kmod-usb-net-rndis
 # kmod-usb-net
 # kmod-usb-net-cdc-ether
 # kmod-usb-net-rndis
-
 ```
+
+# DDNS
+```
+opkg install luci-app-ddns ddns-scripts-cloudflare
+```
+## Settings
+* Domain: &lt;subdomain@domain&gt; (e.g.: test.guca.at -> test@guca.at)
+* Password: &lt;token from cloudflare website&gt;
+* IP address source: URL
+* URL to detect: http://checkip.dyndns.com
 
 # WireGuard VPN
 ```
